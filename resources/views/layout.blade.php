@@ -13,19 +13,12 @@
   		text-align: center;
   	}
 
-  	.title2 {
-  		/*background-color: red;*/
-  		height: 200px;
-  	}
+    .nav-item {
+      margin: 10px;
+    }
 
-  	.buttons {
-  		/*background-color: green;*/
-  	}
-
-    form {
-      margin-right: 30px;
-      margin-left: 30px;
-      margin-bottom: 30px;
+    .btn {
+      margin: 5px;
     }
   </style>
 </head>
@@ -43,6 +36,24 @@
 				<h2>Performance Database</h2>
 			</div>
 		</div>
+
+    <ul class="nav nav-pills justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="/pieces">Search Repertoire</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="/concerts">View All Concerts</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Log In</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Log Out</a>
+      </li>
+    </ul>
     @yield('main')
 	</div>
 </body>

@@ -5,7 +5,8 @@
 @section('main')
 
 <div class="row">
-	<div class="col">
+  <div class="col-3"></div>
+	<div class="col-6">
   		<form action="" method="post">
   			@csrf
   			<div class="form-group">
@@ -53,15 +54,13 @@
       			</select>
       		</div>
 
-  			<button type="submit" class="btn btn-primary">
-      			Search
-    		</button>
-    		
-    		<button type="reset" class="btn btn-primary">
-      			Clear
-    		</button>
+  			<button type="submit" class="btn btn-success">Search</button>
+    		<button type="reset" class="btn btn-success">Clear</button>
   		</form>
+      <a class="btn btn-info" href="#">Add a piece</a>
+      <a class="btn btn-info" href="#">Add a concert</a>
   	</div>
+    <div class="col-3"></div>
 </div>
 
 @endsection

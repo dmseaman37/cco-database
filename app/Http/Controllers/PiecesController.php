@@ -58,7 +58,8 @@ class PiecesController extends Controller
     	$piece = DB::table('pieces')
         ->join('categories', 'pieces.category_id', 'categories.id')
         ->join('concerts', 'pieces.concert_id', 'concerts.id')
-        ->select('pieces.composer', 
+        ->select('pieces.id',
+                'pieces.composer', 
                 'pieces.title', 
                 'pieces.movement', 
                 'pieces.opus_number', 
@@ -106,8 +107,16 @@ class PiecesController extends Controller
             'conductor' => $request->conductor,
             'soloist' => $request->soloist,
             'category_id' => $request->category,
-            'concert_id' => $request->concert,
+            'concert_id' => $request->concert
         ]);
+
+        return redirect('/pieces');
+    }
+
+    public function delete(Request $request) {
+        DB::table('pieces')
+        ->where('id', $request->id)
+        ->delete();
 
         return redirect('/pieces');
     }

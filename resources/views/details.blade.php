@@ -55,10 +55,21 @@
 <div class="row">
 	<div class="col-4"></div>
 	<div class="col-4">
-		<a class="btn btn-success" href="#">Edit</a>
-		<a class="btn btn-danger" href="#">Delete</a>
+		<form action="" method="post">
+			@csrf
+			<input type="hidden" id="delete" name="delete" class="form-control" value="{{$piece->id}}">
+			<button class="btn btn-danger" type="submit">Delete</button>
+			<a class="btn btn-success" href="#">Edit</a>
+		</form>
 	</div>
 	<div class="col-4"></div>
 </div>
+
+<script>
+	document.querySelector(".btn-danger").onclick = function(){
+		console.log("click");
+		confirm("Are you sure you want to delete this piece?");
+	};
+</script>
 
 @endsection

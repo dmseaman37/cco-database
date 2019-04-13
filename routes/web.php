@@ -7,8 +7,8 @@ Route::get('/pieces/{id}', 'PiecesController@details');
 Route::post('/pieces/{id}', 'PiecesController@delete');
 Route::get('/piece/add', 'PiecesController@add');
 Route::post('/piece/add', 'PiecesController@store');
-Route::get('/pieces/edit/{id}', 'PiecesController@edit');
-Route::post('pieces/edit/{id}', 'PiecesController@update');
+Route::get('/piece/edit/{id}', 'PiecesController@edit');
+Route::post('piece/edit/{id}', 'PiecesController@update');
 
 Route::get('/concerts', 'ConcertsController@index');
 Route::get('/concerts/add', 'ConcertsController@add');

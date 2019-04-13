@@ -59,7 +59,7 @@
 			@csrf
 			<input type="hidden" id="delete" name="delete" class="form-control" value="{{$piece->id}}">
 			<button class="btn btn-danger" type="submit">Delete</button>
-			<a class="btn btn-success" href="#">Edit</a>
+			<a class="btn btn-success" href="/piece/edit/{{$piece->id}}">Edit</a>
 		</form>
 	</div>
 	<div class="col-4"></div>

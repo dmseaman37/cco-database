@@ -120,4 +120,62 @@ class PiecesController extends Controller
 
         return redirect('/pieces');
     }
+
+    public function edit($id) {
+        $piece = DB::table('pieces')
+        ->join('categories', 'pieces.category_id', 'categories.id')
+        ->join('concerts', 'pieces.concert_id', 'concerts.id')
+        ->select('pieces.id',
+            'pieces.composer', 
+            'pieces.title', 
+            'pieces.movement', 
+            'pieces.opus_number', 
+            'categories.name AS category', 
+            'pieces.conductor', 
+            'pieces.soloist', 
+            'concerts.date AS date')
+        ->where('pieces.id', $id)
+        ->first();
+
+        $categories = DB::table('categories')->get();
+        $concerts = DB::table('concerts')->get();
+
+        return view('piece.edit', [
+            'piece' => $piece,
+            'categories' => $categories,
+            'concerts' => $concerts
+        ]);
+    }
+
+    public function update($id, Request $request) {
+        $input = $request->all();
+
+        $validation = Validator::make($input, [
+            'composer' => 'required',
+            'title' => 'required',
+            'category' => 'required',
+            'concert' => 'required'
+        ]);
+
+        if ($validation->fails()) {
+            return redirect('/piece/edit/' . $id)
+            ->withInput()
+            ->withErrors($validation);
+        }
+
+        DB::table('pieces')
+        ->where('id', $id)
+        ->update([
+            'composer' => $request->composer,
+            'title' => $request->title,
+            'movement' => $request->movement,
+            'opus_number' => $request->opus,
+            'conductor' => $request->conductor,
+            'soloist' => $request->soloist,
+            'category_id' => $request->category,
+            'concert_id' => $request->concert
+        ]);
+
+        return redirect('/pieces/' . $id);
+    }
 }

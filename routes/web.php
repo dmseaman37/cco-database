@@ -1,5 +1,5 @@
 <?php
-Route::get('/', function () {return view('menu');});
+Route::get('/index', function () {return view('menu');});
 
 Route::get('/pieces', 'PiecesController@form');
 Route::post('/pieces', 'PiecesController@results');

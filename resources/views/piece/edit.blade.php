@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Repertoire')
+@section('title', 'Edit Piece')
 
 @section('main')
 

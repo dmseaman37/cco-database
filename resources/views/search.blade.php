@@ -57,8 +57,11 @@
   			<button type="submit" class="btn btn-success">Search</button>
     		<button type="reset" class="btn btn-success">Clear</button>
   		</form>
+
+      @if(Auth::check())
       <a class="btn btn-info" href="/piece/add">Add a piece</a>
-      <a class="btn btn-info" href="#">Add a concert</a>
+      <a class="btn btn-info" href="/concerts/add">Add a concert</a>
+      @endif
   	</div>
     <div class="col-3"></div>
 </div>

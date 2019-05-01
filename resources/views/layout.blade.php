@@ -20,6 +20,10 @@
     .btn {
       margin: 5px;
     }
+
+    #delete {
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -46,13 +50,17 @@
         <a class="nav-link active" href="/concerts">View All Concerts</a>
       </li>
 
+      @if(Auth::check())
       <li class="nav-item">
-        <a class="nav-link active" href="#">Log In</a>
+        <a class="nav-link active" href="logout">Log Out</a>
       </li>
 
+      @else
       <li class="nav-item">
-        <a class="nav-link active" href="#">Log Out</a>
+        <a class="nav-link active" href="/login">Log In</a>
       </li>
+
+      @endif
     </ul>
     @yield('main')
 	</div>

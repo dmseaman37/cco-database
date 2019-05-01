@@ -55,14 +55,12 @@
 <div class="row">
 	<div class="col-4"></div>
 	<div class="col-4">
-		@if(Auth::check())
 		<form action="" method="post">
 			@csrf
 			<input type="hidden" id="delete" name="delete" class="form-control" value="{{$piece->id}}">
 			<button class="btn btn-danger" type="submit">Delete</button>
 			<a class="btn btn-success" href="/piece/edit/{{$piece->id}}">Edit</a>
 		</form>
-		@endif
 	</div>
 	<div class="col-4"></div>
 </div>

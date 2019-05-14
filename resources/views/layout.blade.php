@@ -31,7 +31,7 @@
 	<div class="container-fluid">
 		<div class="row title">
 			<div class="col-12">
-				<h1>Concerto Chamber Orchestra</h1>
+				<h1><a href="/">Concerto Chamber Orchestra</a></h1>
 			</div>
 		</div>
 

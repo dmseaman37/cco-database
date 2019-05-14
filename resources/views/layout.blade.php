@@ -52,7 +52,7 @@
 
       @if(Auth::check())
       <li class="nav-item">
-        <a class="nav-link active" href="logout">Log Out</a>
+        <a class="nav-link active" href="/logout">Log Out</a>
       </li>
 
       @else

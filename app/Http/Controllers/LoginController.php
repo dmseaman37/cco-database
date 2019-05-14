@@ -21,7 +21,7 @@ class LoginController extends Controller
 
 		if ($loginWasSuccessful)
 		{
-			return redirect('/index');
+			return redirect('/');
 		}
 
 		else

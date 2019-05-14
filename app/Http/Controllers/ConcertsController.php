@@ -9,31 +9,29 @@ use Validator;
 class ConcertsController extends Controller
 {
     public function index() {
-    	$concerts = DB::table('concerts')
-    	->select('concerts.id AS id', 'concerts.date AS date', 'venues.name AS venue')
-    	->join('venues', 'concerts.venue_id', 'venues.id')
-    	->get();
+        $concerts = DB::table('concerts')
+        ->select('concerts.id AS id', 'concerts.date AS date', 'venues.name AS venue')
+        ->join('venues', 'concerts.venue_id', 'venues.id')
+        ->get();
 
-    	return view('concerts', ['concerts' => $concerts]);
+        return view('concerts', ['concerts' => $concerts]);
     }
 
     public function program($id) {
-    	$program = DB::table('pieces')
-    	->where('concert_id', $id)
-    	->get();
+        $program = DB::table('pieces')
+        ->where('concert_id', $id)
+        ->get();
 
-    	return view('pieces', ['pieces' => $program]);
+        return view('pieces', ['pieces' => $program]);
     }
 
     public function add() {
         $venues = DB::table('venues')->get();
 
-        return view('concert.add', [
-            'venues' => $venues
-        ]);
+        return view('concert.add', ['venues' => $venues]);
     }
 
-     public function store(Request $request) {
+    public function store(Request $request) {
         $input = $request->all();
 
         $validation = Validator::make($input, [

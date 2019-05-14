@@ -61,6 +61,10 @@ class ConcertsController extends Controller
     }
 
     public function delete(Request $request) {
+        DB::table('pieces')
+        ->where('concert_id', $request->id)
+        ->delete();
+
         DB::table('concerts')
         ->where('id', $request->id)
         ->delete();

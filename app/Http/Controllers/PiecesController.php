@@ -49,6 +49,8 @@ class PiecesController extends Controller
             $query->where('concert_id', $request->input('concert'));
         }
 
+        $query->orderBy('composer', 'asc');
+
         $pieces = $query->get();
 
     	return view('pieces', ['pieces' => $pieces]);

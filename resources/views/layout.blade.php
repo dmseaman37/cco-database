@@ -13,6 +13,11 @@
   		text-align: center;
   	}
 
+    #image {
+      text-align: center;
+      padding-top: 20px;
+    }
+
     .nav-item {
       margin: 10px;
     }
